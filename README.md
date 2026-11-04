@@ -59,7 +59,7 @@ Dicas para a prova:
 
 ⚠️ Não editem o repositório do professor nem a pasta de outra equipe.
 
-## Apresentação (27/11, 10 minutos por equipe)
+## Apresentação (27/11)
 
 1. A planilha original e as anomalias encontradas.
 2. A normalização até a 3FN, a FNBC e a 4FN.
