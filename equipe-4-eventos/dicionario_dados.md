@@ -22,3 +22,22 @@ Uma tabela de dicionário para **cada** tabela do modelo final, usando os tipos 
 |  |  |  |  |  |  |  |
 
 (copie o bloco acima para cada tabela)
+
+
+<!-- BLOCO: PLANILHA 3 (4FN) - Pessoa 6 (Tais) -->
+**Tabela: `palestrante_tema`**
+
+| Atributo | Tipo | Tamanho | Nulo? | Chave | Descrição | Restrição / domínio |
+| --- | --- | --- | --- | --- | --- | --- |
+| palestrante | VARCHAR | 60 | Não | PK (composta) | Nome do palestrante | Parte da chave junto com `tema` |
+| tema | VARCHAR | 40 | Não | PK (composta) | Tema sobre o qual o palestrante fala | Não repete a combinação (palestrante, tema) |
+
+---
+
+**Tabela: `palestrante_idioma`**
+
+| Atributo | Tipo | Tamanho | Nulo? | Chave | Descrição | Restrição / domínio |
+| --- | --- | --- | --- | --- | --- | --- |
+| palestrante | VARCHAR | 60 | Não | PK (composta) | Nome do palestrante | Parte da chave junto com `idioma` |
+| idioma | VARCHAR | 20 | Não | PK (composta) | Idioma em que o palestrante fala | Não repete a combinação (palestrante, idioma) |
+<!-- FIM DO BLOCO: PLANILHA 3 (4FN) -->
