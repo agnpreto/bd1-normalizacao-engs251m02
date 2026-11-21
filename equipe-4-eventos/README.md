@@ -62,8 +62,40 @@ O sistema da Semana de Tecnologia hoje é uma planilha. Rode o `00_planilha.sql`
 
 ## 5. 4FN: `planilha_4fn`
 
-- Dependências multivaloradas: [ ]
-- Decomposição: [ ]
+<!-- BLOCO: PLANILHA 3 (4FN) - Pessoa 6 (Tais) -->
+**Planilha original (8 linhas):**
+
+| palestrante | tema | idioma |
+| --- | --- | --- |
+| Dra. Lia | IA | Português |
+| Dra. Lia | IA | Inglês |
+| Dra. Lia | Ética | Português |
+| Dra. Lia | Ética | Inglês |
+| Prof. Rui | Cloud | Português |
+| Prof. Rui | Cloud | Espanhol |
+| Eng. Tais | Segurança | Português |
+| Eng. Tais | Redes | Português |
+
+A chave da planilha é (palestrante, tema, idioma), ou seja, as três colunas juntas.
+
+**Anomalias:**
+
+| Anomalia | Exemplo na `planilha_4fn` |
+| --- | --- |
+| Inserção | Para acrescentar o idioma Espanhol à Dra. Lia, é preciso inserir 2 linhas (uma para IA e outra para Ética). Se esquecer uma, a planilha passa a dizer que ela fala Espanhol em só um dos temas. |
+| Exclusão | Para remover o idioma Inglês da Dra. Lia, é preciso apagar 2 linhas, uma em cada tema. Apagar só uma deixa os dados inconsistentes. |
+| Modificação | Para trocar o nome do tema Ética, é preciso alterar todas as linhas em que ele aparece (2 linhas só da Dra. Lia). |
+
+- Dependências multivaloradas: `palestrante ->> tema` e `palestrante ->> idioma`. Cada palestrante tem um **conjunto** de temas e, de forma independente, um **conjunto** de idiomas. O idioma não depende do tema, e o tema não depende do idioma. Como o palestrante não é chave da planilha, essas dependências violam a 4FN. A planilha já está na FNBC, porque não há dependência funcional cujo determinante não seja chave. O problema é só a multivalorada, e a Dra. Lia mostra isso: 2 temas x 2 idiomas = 4 linhas.
+- Decomposição: cada conjunto independente vai para a sua própria tabela, ligadas pela coluna `palestrante` (decisão da equipe: 2 tabelas, sem tabela `palestrante` separada, que não é necessária para atingir a 4FN).
+
+| Tabela | Colunas | Chave primária | Linhas |
+| --- | --- | --- | --- |
+| `palestrante_tema` | palestrante, tema | (palestrante, tema) | 5 |
+| `palestrante_idioma` | palestrante, idioma | (palestrante, idioma) | 5 |
+
+Agora, para acrescentar um idioma à Dra. Lia, é preciso inserir só **1 linha**, em `palestrante_idioma`.
+<!-- FIM DO BLOCO: PLANILHA 3 (4FN) -->
 
 ## 6. Modelagem
 
@@ -90,6 +122,15 @@ Preencha o arquivo [`dicionario_dados.md`](dicionario_dados.md) com **todas** as
 ```
 (cole o resultado)
 ```
+
+<!-- BLOCO: PLANILHA 3 (4FN) - Pessoa 6 (Tais) -->
+**Planilha 3 (4FN):** `planilha_4fn` x JOIN de `palestrante_tema` com `palestrante_idioma`
+
+```
+linhas_originais | linhas_reconstruidas | faltando | sobrando
+8                | 8                    | 0        | 0
+```
+<!-- FIM DO BLOCO: PLANILHA 3 (4FN) -->
 
 ## 9. Desafio: uma decomposição errada
 
