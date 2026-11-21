@@ -2,13 +2,17 @@
 
 **Nome do time:** ____________________
 
-| Nome | Usuário do GitHub |
-| --- | --- |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Nome              | Usuário do GitHub |
+| ---               | ---               |    
+| Clecio Júnior     | @cleciofjur       |
+| Denys Kauã        | @                 |
+| Eluana Ferreira   | @                 |
+| João Vitor        | @                 |
+| Marcos Vínicius   | @mrvinicius25     |
+| Raymond Barbosa   | @RaymondLima      | 
+| Taís Yasmin       | @TaisSouz23       |
+
+---
 
 ## O cenário
 
