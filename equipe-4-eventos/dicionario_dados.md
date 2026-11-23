@@ -22,3 +22,21 @@ Uma tabela de dicionário para **cada** tabela do modelo final, usando os tipos 
 |  |  |  |  |  |  |  |
 
 (copie o bloco acima para cada tabela)
+
+<!-- BLOCO: PLANILHA 2 (FNBC) - Pessoa 5 (Denys) -->
+**Tabela:** `mentor`
+
+| Atributo | Tipo | Tamanho | Nulo? | Chave | Descrição | Restrição / domínio |
+| --- | --- | --- | --- | --- | --- | --- |
+| mentor | VARCHAR | 60 | Não | PK | Nome do mentor | Único. Cada mentor acompanha uma única trilha |
+| trilha | VARCHAR | 30 | Não | | Trilha que o mentor acompanha | Determinada pelo mentor (`mentor → trilha`) |
+
+**Tabela:** `participante_mentor`
+
+| Atributo | Tipo | Tamanho | Nulo? | Chave | Descrição | Restrição / domínio |
+| --- | --- | --- | --- | --- | --- | --- |
+| participante | VARCHAR | 60 | Não | PK | Nome do participante | Parte da PK composta `(participante, mentor)` |
+| mentor | VARCHAR | 60 | Não | PK, FK → mentor | Mentor que acompanha o participante | Deve existir em `mentor` |
+
+A regra "em cada trilha o participante tem um único mentor" não é imposta pelo banco. Ela é conferida pela consulta de validação do `03_prova_sem_perda.sql`.
+<!-- FIM DO BLOCO: PLANILHA 2 (FNBC) -->
