@@ -56,9 +56,41 @@ O sistema da Semana de Tecnologia hoje é uma planilha. Rode o `00_planilha.sql`
 
 ## 4. FNBC: `planilha_fnbc`
 
-- Chaves candidatas: [ ]
-- Dependência que viola a FNBC: [ ]
-- Decomposição: [ ]
+<!-- BLOCO: PLANILHA 2 (FNBC) - Pessoa 5 (Denys) -->
+Planilha original (7 linhas):
+
+| participante | trilha | mentor |
+| --- | --- | --- |
+| Rita Gomes | Back-end | Leo |
+| Rita Gomes | Dados | Mara |
+| Hugo Santos | Back-end | Davi |
+| Hugo Santos | Front-end | Íris |
+| Bia Moraes | Dados | Mara |
+| Caio Pinto | Front-end | Íris |
+| Caio Pinto | Back-end | Leo |
+
+Regras do enunciado: em cada trilha o participante tem um único mentor, e cada mentor acompanha uma única trilha. Por isso Rita, Hugo e Caio aparecem com dois mentores (um por trilha). A trilha de cada mentor se repete: Leo → Back-end (2 linhas), Mara → Dados (2 linhas) e Íris → Front-end (2 linhas).
+
+Anomalias:
+
+| Anomalia | Exemplo na `planilha_fnbc` |
+| --- | --- |
+| Inserção | Não dá para cadastrar um mentor novo com a sua trilha antes de ele ter um participante, porque cada linha exige um participante. |
+| Exclusão | Davi aparece em uma única linha (Hugo, Back-end). Se ela for apagada, perde-se a informação de que Davi existe e acompanha Back-end. |
+| Modificação | Para a Mara passar a acompanhar outra trilha, é preciso alterar as 2 linhas dela (Rita e Bia). Alterar só uma deixa a Mara com duas trilhas e quebra a regra. |
+
+- Chaves candidatas: `(participante, trilha)` e `(participante, mentor)`. Elas se sobrepõem no atributo `participante`. A segunda é chave porque `mentor → trilha`.
+- Dependência que viola a FNBC: `mentor → trilha` (a outra dependência é `(participante, trilha) → mentor`). O determinante `mentor` não é chave da planilha. A 3FN tolera isso porque `trilha` faz parte da chave `(participante, trilha)`, mas a FNBC exige que todo determinante seja chave.
+- Decomposição: a trilha vai para a tabela `mentor`, e a ligação entre participante e mentor fica em `participante_mentor`. A ligação precisa de tabela própria porque cada participante tem mais de um mentor.
+- Limitação: depois da decomposição, nenhuma chave impede ligar o mesmo participante a dois mentores da mesma trilha (por exemplo, Hugo com Davi e com Leo, ambos de Back-end). Conferimos isso com uma consulta de validação no `03_prova_sem_perda.sql`.
+
+| Tabela | Colunas | Chave primária | Linhas |
+| --- | --- | --- | --- |
+| `mentor` | mentor, trilha | mentor | 4 |
+| `participante_mentor` | participante, mentor | (participante, mentor) | 7 |
+
+Agora a trilha de cada mentor aparece uma só vez: para mudar a trilha da Mara, é preciso alterar só 1 linha, em `mentor`. A prova sem perda (`03_prova_sem_perda.sql`) remonta a planilha com `participante_mentor` JOIN `mentor`: 7 linhas originais, 7 reconstruídas, 0 faltando e 0 sobrando.
+<!-- FIM DO BLOCO: PLANILHA 2 (FNBC) -->
 
 ## 5. 4FN: `planilha_4fn`
 
