@@ -35,4 +35,28 @@ GROUP BY participante, trilha
 HAVING COUNT(*) > 1;
 -- ========== FIM DO BLOCO: PLANILHA 2 (FNBC) ==========
 
+-- =====================================================
+-- BLOCO: PLANILHA 3 (4FN) - responsavel: Pessoa 6 (Tais)
+-- =====================================================
+CREATE OR REPLACE VIEW vw_4fn_reconstruida AS
+SELECT t.palestrante, t.tema, i.idioma
+FROM palestrante_tema t
+JOIN palestrante_idioma i ON i.palestrante = t.palestrante;
 
+SELECT
+  'planilha_4fn' AS tabela,
+  (SELECT COUNT(*) FROM planilha_4fn) AS linhas_originais,
+  (SELECT COUNT(*) FROM vw_4fn_reconstruida) AS linhas_reconstruidas,
+  (SELECT COUNT(*) FROM planilha_4fn o WHERE NOT EXISTS (
+    SELECT 1 FROM vw_4fn_reconstruida r
+    WHERE r.palestrante <=> o.palestrante
+      AND r.tema <=> o.tema
+      AND r.idioma <=> o.idioma
+  )) AS faltando,
+  (SELECT COUNT(*) FROM vw_4fn_reconstruida r WHERE NOT EXISTS (
+    SELECT 1 FROM planilha_4fn o
+    WHERE o.palestrante <=> r.palestrante
+      AND o.tema <=> r.tema
+      AND o.idioma <=> r.idioma
+  )) AS sobrando;
+-- ========== FIM DO BLOCO: PLANILHA 3 (4FN) ==========
