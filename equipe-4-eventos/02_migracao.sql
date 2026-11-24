@@ -16,3 +16,12 @@ SELECT (SELECT COUNT(*) FROM mentor) AS mentor,
        (SELECT COUNT(*) FROM participante_mentor) AS participante_mentor;
 -- ========== FIM DO BLOCO: PLANILHA 2 (FNBC) ==========
 
+-- =====================================================
+-- BLOCO: PLANILHA 3 (4FN) - responsavel: Pessoa 6 (Tais)
+-- =====================================================
+INSERT INTO palestrante_tema (palestrante, tema)
+SELECT DISTINCT palestrante, tema FROM planilha_4fn;
+
+INSERT INTO palestrante_idioma (palestrante, idioma)
+SELECT DISTINCT palestrante, idioma FROM planilha_4fn;
+-- ========== FIM DO BLOCO: PLANILHA 3 (4FN) ==========
