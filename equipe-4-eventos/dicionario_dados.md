@@ -40,3 +40,21 @@ Uma tabela de dicionário para **cada** tabela do modelo final, usando os tipos 
 
 A regra "em cada trilha o participante tem um único mentor" não é imposta pelo banco. Ela é conferida pela consulta de validação do `03_prova_sem_perda.sql`.
 <!-- FIM DO BLOCO: PLANILHA 2 (FNBC) -->
+
+<!-- BLOCO: PLANILHA 3 (4FN) - Pessoa 6 (Tais) -->
+**Tabela: `palestrante_tema`**
+
+| Atributo | Tipo | Tamanho | Nulo? | Chave | Descrição | Restrição / domínio |
+| --- | --- | --- | --- | --- | --- | --- |
+| palestrante | VARCHAR | 60 | Não | PK (composta) | Nome do palestrante | Parte da chave junto com `tema` |
+| tema | VARCHAR | 40 | Não | PK (composta) | Tema sobre o qual o palestrante fala | Não repete a combinação (palestrante, tema) |
+
+---
+
+**Tabela: `palestrante_idioma`**
+
+| Atributo | Tipo | Tamanho | Nulo? | Chave | Descrição | Restrição / domínio |
+| --- | --- | --- | --- | --- | --- | --- |
+| palestrante | VARCHAR | 60 | Não | PK (composta) | Nome do palestrante | Parte da chave junto com `idioma` |
+| idioma | VARCHAR | 20 | Não | PK (composta) | Idioma em que o palestrante fala | Não repete a combinação (palestrante, idioma) |
+<!-- FIM DO BLOCO: PLANILHA 3 (4FN) -->
