@@ -6,7 +6,7 @@
 | --- | --- |
 | Pedro Vale de Lima Bezerra | [@blackoutt444](https://github.com/blackoutt444) |
 | Eduardo Baçal | A confirmar |
-| Jonhonatan Uchoa | A confirmar |
+| Jonhonatan Uchoa | jonhonatanul-ux |
 | Daniel Villar | A confirmar |
 
 ## O cenário
