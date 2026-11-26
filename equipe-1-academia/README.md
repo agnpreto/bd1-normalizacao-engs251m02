@@ -51,7 +51,7 @@ O `00_planilha.sql` apaga e recria o banco `normalizacao_academia`. Para refazer
 ## 1. Anomalias
 
 | Anomalia | Exemplo na planilha |
-| --- | --- |
+| --- | --- | --- |
 | Inserção | A chave da planilha é (matricula, cod_aula). Um aluno que ainda não escolheu aula não pode ser cadastrado sem inventar um `cod_aula`. Do mesmo jeito, uma aula nova sem alunos (por exemplo, uma turma de Yoga) ou um plano novo ainda sem assinantes não cabem numa linha sem inventar uma matrícula. |
 | Exclusão | Elisa Rocha (matrícula 105) só aparece na linha da aula A2 (Spinning). Se ela sair do Spinning e a linha for apagada, somem também o nome dela, os dois telefones ((92) 98285-1555 e (92) 98705-2615) e o registro de que ela assina o plano Trimestral. |
 | Modificação | O plano Mensal (P1, R$ 129,90) se repete em 4 linhas: as duas de Ana Souza e as duas de Carla Dias. Um reajuste exige alterar as 4. Se só uma for alterada, o mesmo plano passa a ter dois preços. O mesmo vale para o horário da Musculação (A1, 07:00, Seg/Qua/Sex), repetido nas linhas de Ana, Bruno e Diego. |
