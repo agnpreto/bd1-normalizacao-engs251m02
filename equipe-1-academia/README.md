@@ -59,7 +59,7 @@ O `00_planilha.sql` apaga e recria o banco `normalizacao_academia`. Para refazer
 ## 2. Dependências funcionais da `planilha`
 
 | Determinante | Determina | Tipo (total, parcial ou transitiva) |
-| --- | --- | --- |
+| --- | --- | --- | 
 | matricula | nome_aluno, telefones, cod_plano | Parcial: depende só de parte da chave (matricula, cod_aula) |
 | cod_aula | nome_aula, horario, dias | Parcial: depende só de parte da chave |
 | cod_plano | nome_plano, valor_plano | Transitiva: matricula → cod_plano → nome_plano, valor_plano |
