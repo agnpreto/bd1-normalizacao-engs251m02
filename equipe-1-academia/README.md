@@ -158,15 +158,14 @@ As duas têm FK para `instrutor`. A junção das duas pelo instrutor devolve as 
 
 As cardinalidades seguem a convenção do brModelo: o par (mín, máx) escrito junto de uma entidade diz quantas ocorrências dela se ligam a uma ocorrência da outra ponta.
 
-![Modelo lógico](modelo_logico.png).
+![Modelo conceitual](modelo_conceitual.png)
 
 
 ### 6.2 Modelo lógico (James Martin, pé de galinha)
 
 São as 10 tabelas finais do `01_ddl.sql`, com PK, FK e UK. Cada linha liga uma tabela pai (barra dupla = exatamente 1) a uma tabela filha (círculo e pé de galinha = 0..N). Os relacionamentos N:N do modelo conceitual viraram as tabelas associativas `matricula_aula` e `aluno_instrutor`. Os atributos multivalorados viraram `aluno_telefone`, `aula_dia`, `instrutor_certificacao` e `instrutor_disponibilidade`.
 
-![Modelo conceitual](modelo_conceitual.png)
-
+![Modelo lógico](modelo_logico.png).
 
 
 ## 7. Dicionário de dados
