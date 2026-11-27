@@ -165,8 +165,9 @@ As cardinalidades seguem a convenção do brModelo: o par (mín, máx) escrito j
 
 São as 10 tabelas finais do `01_ddl.sql`, com PK, FK e UK. Cada linha liga uma tabela pai (barra dupla = exatamente 1) a uma tabela filha (círculo e pé de galinha = 0..N). Os relacionamentos N:N do modelo conceitual viraram as tabelas associativas `matricula_aula` e `aluno_instrutor`. Os atributos multivalorados viraram `aluno_telefone`, `aula_dia`, `instrutor_certificacao` e `instrutor_disponibilidade`.
 
-![Modelo lógico](<img width="1113" height="627" alt="James Martin" src="https://github.com/user-attachments/assets/4d81768e-7fa9-4e0e-af6c-4fbde6b56759" />
-.png)
+![Modelo lógico](<img  width="1113" height="627" alt="modelo_logico" src="https://github.com/user-attachments/assets/1932d998-f107-405f-82bf-95ac076767fd"  />
+)
+
 
 ## 7. Dicionário de dados
 
