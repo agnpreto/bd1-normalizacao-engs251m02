@@ -158,7 +158,7 @@ As duas têm FK para `instrutor`. A junção das duas pelo instrutor devolve as 
 
 As cardinalidades seguem a convenção do brModelo: o par (mín, máx) escrito junto de uma entidade diz quantas ocorrências dela se ligam a uma ocorrência da outra ponta.
 
-![Modelo conceitual]( <img width="982" height="667" alt="modelo_conceitual" src="https://github.com/user-attachments/assets/219c11a4-7de6-4861-abb7-5575fb4861f9" />
+![Modelo conceitual]<img width="982" height="667" alt="modelo_conceitual" src="https://github.com/user-attachments/assets/219c11a4-7de6-4861-abb7-5575fb4861f9" />
 )
 
 ### 6.2 Modelo lógico (James Martin, pé de galinha)
