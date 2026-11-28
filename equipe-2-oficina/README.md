@@ -36,13 +36,17 @@ O sistema da Oficina AutoCerto hoje é uma planilha. Rode o `00_planilha.sql` no
 
 | Determinante | Determina | Tipo (total, parcial ou transitiva) |
 | --- | --- | --- |
-|  |  |  |
+| `(num_os, cod_servico)` | `horas` | Total |
+| `num_os` | `data_os, placa` | Parcial |
+| `cod_servico` | `servico, preco_servico` | Parcial |
+| `placa` | `modelo, cpf_cliente` | Transitiva |
+| `cpf_cliente` | `nome_cliente` | Transitiva |
 
-**Chave primária da `planilha`:** [ ]
+**Chave primária da `planilha`:** `(num_os, cod_servico)`
 
 ## 3. Normalização passo a passo
 
-**1FN:** [o que não era atômico e como ficou]
+**1FN:** A tabela original não atendia completamente à Primeira Forma Normal, pois o atributo `telefones` armazenava mais de um número de telefone no mesmo campo, separados por ponto e vírgula. Para corrigir esse problema, os telefones foram separados, de modo que cada registro contenha apenas um número. Assim, os valores passaram a ser atômicos, atendendo à 1FN.
 
 **2FN:** [quais dependências parciais e como ficou]
 
